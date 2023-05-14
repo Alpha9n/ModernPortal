@@ -1,9 +1,0 @@
-{
-    "manifest_version": 3,
-    "name": "Modernize-NKZPortal",
-    "description": "Modernize portal.nkz.ac.jp",
-    "version": "1.0.0",
-    "action": {},
-    "background": {},
-    "content_scripts": []
-}
