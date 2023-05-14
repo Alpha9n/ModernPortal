@@ -15,7 +15,7 @@ export default defineManifest(async (env) => ({
         env.mode === 'staging'
             ? '[INTERNAL] Modern Portal'
             : 'Modern Portal',
-    description: "Modernize portal.nkz.ac.jp",
+    description: "Modernization of portal site 'portal.nkz.ac.jp' for students.",
     version: `${major}.${minor}.${patch}.${label}`,
     version_name: version,
     icons: {

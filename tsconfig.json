@@ -6,6 +6,9 @@
       "DOM.Iterable",
       "ESNext"
     ],
+    "types": [
+      "@types/chrome"
+    ],
     "module": "ESNext",
     "skipLibCheck": true,
     /* Bundler mode */
