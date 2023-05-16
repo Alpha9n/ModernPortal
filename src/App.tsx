@@ -8,11 +8,11 @@ function App() {
 
   const openLink = (link: string) => {
     chrome.tabs.create({ url: link });
-  }
+  };
 
   const themeSelect = (value: string) => {
     isThemeValue(value) ? setTheme(value) : null;
-  }
+  };
 
   return (
     <>
@@ -24,7 +24,7 @@ function App() {
         <option value='OS'>OS Setting</option>
       </Select >
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
