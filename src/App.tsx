@@ -1,9 +1,9 @@
 import './App.css';
-import { Heading, Select, Button, ButtonGroup, theme } from '@chakra-ui/react';
+import { Heading, Select, Button } from '@chakra-ui/react';
 import { getTheme, isThemeValue, setTheme } from './Utils';
 
-const App: React.FC = () => {
-  const portalLink = "https://portal.nkz.ac.jp/portal/login.do";
+function App() {
+  const portalLink = 'https://portal.nkz.ac.jp/portal/login.do';
   const currentTheme = getTheme();
 
   const openLink = (link: string) => {
@@ -17,11 +17,11 @@ const App: React.FC = () => {
   return (
     <>
       <Heading>Modern Portal</Heading>
-      <Button colorScheme="blue" onClick={() => openLink(portalLink)}>Portal</Button>
+      <Button colorScheme='blue' onClick={() => openLink(portalLink)}>Portal</Button>
       <Select placeholder={currentTheme} onChange={(e) => themeSelect(e.target.value)}>
-        <option value="dark">Dark</option>
-        <option value="light">Light</option>
-        <option value="OS">OS Setting</option>
+        <option value='dark'>Dark</option>
+        <option value='light'>Light</option>
+        <option value='OS'>OS Setting</option>
       </Select >
     </>
   );
