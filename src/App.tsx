@@ -11,8 +11,8 @@ function App() {
   };
 
   const themeSelect = (value: string) => {
-    isThemeValue(value) ? setTheme(value) : null;
-  };
+    isThemeValue(value) ? setTheme(value) : setTheme("OS");
+  }
 
   return (
     <>

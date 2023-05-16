@@ -25,7 +25,8 @@ export default defineManifest(async (env) => ({
         '128': `${iconPath}icon128.png`
     },
     action: {
-        'default_popup': 'index.html',
-        'default_icon': `${iconPath}icon1280.png`
-    }
+        "default_popup": "index.html",
+        "default_icon": `${iconPath}icon1280.png`
+    },
+    permissions: ["storage"]
 }));
