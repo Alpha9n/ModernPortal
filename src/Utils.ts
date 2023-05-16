@@ -1,5 +1,5 @@
-const themeKey = "theme";
-export const themes = ["dark", "light", "OS"] as const;
+const themeKey = 'theme';
+export const themes = ['dark', 'light', 'OS'] as const;
 export type ThemeTypes = typeof themes[number];
 
 export interface Theme {
@@ -19,6 +19,6 @@ export const getTheme = (): string => {
     chrome.storage.sync.get(themeKey, (obj) => {
         result = obj.theme;
     });
-    if (typeof result === "string") return result;
+    if (typeof result === 'string') return result;
     return ''
 }
