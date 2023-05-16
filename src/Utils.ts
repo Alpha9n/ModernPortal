@@ -4,15 +4,15 @@ export type ThemeTypes = typeof themes[number];
 
 export interface Theme {
     value: ThemeTypes;
-}
+};
 
 export const isThemeValue = (target: any): target is ThemeTypes => {
     return themes.includes(target);
-}
+};
 
 export const setTheme = (theme: ThemeTypes) => {
     chrome.storage.sync.set({ themeKey: theme });
-}
+};
 
 export const getTheme = (): string => {
     let result
@@ -20,5 +20,5 @@ export const getTheme = (): string => {
         result = obj.theme;
     });
     if (typeof result === "string") return result;
-    return ''
-}
+    return '';
+};

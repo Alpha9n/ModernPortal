@@ -8,11 +8,11 @@ const App: React.FC = () => {
 
   const openLink = (link: string) => {
     chrome.tabs.create({ url: link });
-  }
+  };
 
   const themeSelect = (value: string) => {
     isThemeValue(value) ? setTheme(value) : null;
-  }
+  };
 
   return (
     <>
@@ -24,7 +24,7 @@ const App: React.FC = () => {
         <option value="OS">OS Setting</option>
       </Select >
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
