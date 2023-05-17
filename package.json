@@ -10,13 +10,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^2.0.19",
     "@chakra-ui/react": "^2.6.1",
+    "@chakra-ui/shared-utils": "^2.0.4",
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
+    "@jridgewell/sourcemap-codec": "^1.4.15",
     "@types/chrome": "^0.0.235",
     "framer-motion": "^10.12.10",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.8.0"
   },
   "devDependencies": {
     "@crxjs/vite-plugin": "2.0.0-beta.17",
