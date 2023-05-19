@@ -1,4 +1,4 @@
-function removeStyles(el) {
+const removeStyles = (el) => {
     // html埋め込みのcssの削除
     el.removeAttribute('style');
 
