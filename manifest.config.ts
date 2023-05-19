@@ -28,5 +28,15 @@ export default defineManifest(async (env) => ({
         "default_popup": "index.html",
         "default_icon": `${iconPath}icon1280.png`
     },
+    content_scripts: [
+        {
+            "matches": [
+                "*://*.portal.nkz.ac.jp/portal/*"
+            ],
+            "js": [
+                "./src/contentScripts/scripts/general.js",
+            ]
+        }
+    ],
     permissions: ["storage"]
 }));
