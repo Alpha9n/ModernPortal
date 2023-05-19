@@ -35,9 +35,6 @@ export default defineManifest(async (env) => ({
             ],
             "js": [
                 "./src/contentScripts/scripts/general.js"
-            ],
-            "css": [
-                "./src/contentScripts/styles/general.css"
             ]
         }
     ],

@@ -2,4 +2,126 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+#portalID {
+    color: #edeeee;
+    font-weight: 900;
+    font-size: 1.5rem;
+}
+
+a {
+    color: #8eccf4;
+}
+
+input[type=button],
+input[type=text],
+input[type=password] {
+    background: none;
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+input[type=button] {
+    width: fit-content;
+    border-radius: 5px;
+    background-color: #8eccf4;
+    height: 1rem;
+
+    &:hover {
+        background-color: #63b3ed;
+    }
+}
+
+body {
+    background-color: #1a202c;
+    color: #edeeee;
+}
+
+.qtip.qtip-blue {
+    display: none;
+}
+
+#header {
+    position: sticky;
+    top: 0;
+    background-color: #0b0e13;
+    display: flex;
+    padding: 2rem;
+    justify-content: space-between;
+
+    &>* {
+        vertical-align: middle;
+    }
+
+}
+
+
+
+#top_menu {
+    display: flex;
+
+    &>ul {
+        display: flex;
+
+        &>li {
+            margin-right: 2rem;
+        }
+    }
+}
+
+#login_inf_print {
+    display: none;
+}
+
+.button {
+    display: flex;
+}
+
+.button>* {
+    margin-right: 1rem;
+}
+
+#content>table[summary="layout"] {
+    margin: 2rem auto;
+    width: 60%;
+    height: 60vh;
+}
+
+#sub1 {
+    font-weight: 900;
+    vertical-align: top;
+}
+
+
+#slide {
+    display: none;
+}
+
+#footer {
+    width: 100%;
+    background-color: #0b0e13;
+    padding: 2rem;
+
+    &>#side_menu {
+        width: fit-content;
+        margin: 0 auto;
+
+        &>#sideMenuMiddle {
+            display: flex;
+
+            &>* {
+                margin-left: 2rem;
+            }
+        }
+    }
+}
+
+#pageTopButton {
+    display: none;
 }
