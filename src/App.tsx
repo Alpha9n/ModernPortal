@@ -3,7 +3,7 @@ import { Heading, Select, Button, Box, Divider, Text, useColorMode } from '@chak
 import { ThemeTypes, isThemeValue, setTheme } from './Utils';
 import { FaExternalLinkAlt } from "react-icons/fa";
 
-function App() {
+const App = () => {
 
   const portalLink = 'https://portal.nkz.ac.jp/portal/login.do';
   const { colorMode, toggleColorMode } = useColorMode();
