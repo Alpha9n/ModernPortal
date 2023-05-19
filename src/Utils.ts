@@ -1,5 +1,3 @@
-import { useColorMode } from '@chakra-ui/react';
-
 const themeKey = 'theme';
 export const themes = ['dark', 'light', 'OS'] as const;
 export type ThemeTypes = typeof themes[number];
