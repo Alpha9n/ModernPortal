@@ -1,4 +1,5 @@
-import '../styles/general.css'
+import '../styles/general.css';
+import '../styles/login.css';
 
 const removeHeaderElements = ['head_top', 'head_left', 'head_base'];
 const removeButtons = ['f_large', 'f_middle', 'f_small'];
@@ -32,8 +33,9 @@ const removeStyles = (el) => {
     }
     returnTop.remove();
     slideButton.remove();
-
 }
+
+
 
 const createHeader = () => {
     removeHeaderElements.forEach((i) => {

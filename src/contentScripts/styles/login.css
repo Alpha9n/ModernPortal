@@ -1,0 +1,2 @@
+/* loginページか判定 */
+body :has(> #loginArea) {}
