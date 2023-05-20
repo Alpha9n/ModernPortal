@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { Login } from '../pages/login';
+import { Login } from '../pages/Login';
 import { ChakraProvider } from '@chakra-ui/react';
 import '../styles/general.css';
 import '../styles/login.css';
@@ -22,20 +22,18 @@ const removePage = () => {
 }
 
 const createNewPage = () => {
+    const title = '日本教育財団 ポータルサイト';
+    const topPageURL = 'https://portal.nkz.ac.jp/portal/top.do';
     let reactWrapepr = document.createElement('div');
     reactWrapepr.id = 'reactWrapper';
     document.body.appendChild(reactWrapepr);
     ReactDOM.createRoot(reactWrapepr as HTMLElement).render(
         <React.StrictMode>
             <ChakraProvider>
-                <Login />
+                <Login title={title} topPageURL={topPageURL} />
             </ChakraProvider>
         </React.StrictMode>
     );
-}
-
-const getLinks = ():  => {
-
 }
 
 const removeStyles = () => {
