@@ -34,7 +34,7 @@ export default defineManifest(async (env) => ({
                 "*://*.portal.nkz.ac.jp/portal/*"
             ],
             "js": [
-                "./src/contentScripts/scripts/general.js"
+                "./src/contentScripts/scripts/general.tsx"
             ]
         }
     ],

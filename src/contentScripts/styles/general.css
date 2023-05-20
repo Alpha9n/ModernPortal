@@ -47,11 +47,6 @@ input[type=button] {
     }
 }
 
-body {
-    background-color: #1a202c;
-    color: #edeeee;
-}
-
 .qtip.qtip-blue {
     display: none;
 }
