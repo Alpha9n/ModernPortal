@@ -1,6 +1,6 @@
 import { Box, Button, Flex, useBreakpointValue, useColorModeValue, IconButton, Link, Input } from "@chakra-ui/react";
 import { IoNotifications } from "react-icons/io5";
-import { handleLogout } from "../apiWrapper";
+import { handleLogout } from "../api/wrapper";
 interface HeaderProps {
     title: string
     topPageURL: string
