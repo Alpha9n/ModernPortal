@@ -15,7 +15,7 @@ export const Login = ({ title, topPageURL }: LoginProps) => {
                 w={'50%'}>
                 <Stack>
                     <form onSubmit={async (e) => {
-                        await handleLogin(e)
+                        await handleLogin(e);
                     }}>
                         <FormControl>
                             <Text>ユーザID</Text>
