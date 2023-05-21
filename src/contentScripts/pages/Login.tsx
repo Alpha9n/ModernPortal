@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { login as loginToCampusmate } from '../api/wrapper';
 import { Header } from '../components/Header';
-import { Box, Stack, Center, Input, Button, FormControl, useColorModeValue, Heading, FormLabel } from '@chakra-ui/react';
+import { Box, Stack, Input, Button, FormControl, useColorModeValue, Heading, FormLabel } from '@chakra-ui/react';
 interface LoginProps {
     title: string;
     topPageURL: string;
