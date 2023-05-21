@@ -4,6 +4,7 @@ import { Login } from '../pages/Login';
 import { NotFound } from '../pages/404';
 import { ChakraProvider } from '@chakra-ui/react';
 import '../styles/general.css';
+import { isUserLoggedIn } from '../utils/scraper';
 
 const stylesheets = [...document.getElementsByTagName('link')];
 const container = document.getElementById('container');
@@ -16,17 +17,11 @@ const topPageURL = 'https://portal.nkz.ac.jp/portal/top.do';
 
 const removePage = () => {
     container!.style.display = 'none';
-    if (document.getElementById('loginArea') != null) {
-        document.getElementsByClassName('qtip')[0].remove();
-        createNewPage(
-            <Login title={title} topPageURL={topPageURL} />
-        );
-    } else {
-        createNewPage();
-    }
+
+    document.getElementsByClassName('qtip')?.[0]?.remove();
 }
 
-const createNewPage = (body: JSX.Element = <NotFound title={title} topPageURL={topPageURL} />) => {
+const mountApp = () => {
     let reactWrapepr = document.createElement('div');
 
     reactWrapepr.id = 'reactWrapper';
@@ -34,7 +29,11 @@ const createNewPage = (body: JSX.Element = <NotFound title={title} topPageURL={t
     ReactDOM.createRoot(reactWrapepr as HTMLElement).render(
         <React.StrictMode>
             <ChakraProvider>
-                {body}
+                {
+                    isUserLoggedIn()
+                    ? <Login title={title} topPageURL={topPageURL} />
+                    : <NotFound title={title} topPageURL={topPageURL} />
+                }
             </ChakraProvider>
         </React.StrictMode>
     );
@@ -55,3 +54,4 @@ const removeStyles = () => {
 
 removeStyles();
 removePage();
+mountApp();
