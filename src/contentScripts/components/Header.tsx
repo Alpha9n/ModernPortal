@@ -1,17 +1,36 @@
-import { Box, Button, Flex, Stack, useBreakpointValue, useColorModeValue, IconButton } from "@chakra-ui/react";
+import { Box, Button, Flex, useBreakpointValue, useColorModeValue, IconButton, Link, Input } from "@chakra-ui/react";
 import { IoNotifications } from "react-icons/io5";
+import { handleLogout } from "../apiWrapper";
 interface HeaderProps {
     title: string
     topPageURL: string
     isLogin?: boolean
 }
 
-export const Header = ({ title, topPageURL, isLogin = false }: HeaderProps) => {
-    let signButtonLabel = 'ログイン'
+export const Header = ({ title, topPageURL, isLogin = false }: HeaderProps): JSX.Element => {
+    let signButtonLabel = isLogin ? 'ログアウト' : 'ログイン'
 
-    if (isLogin) {
-        signButtonLabel = 'ログアウト'
-    }
+    const SignButton = (): JSX.Element => {
+        const buttonH = '10';
+        const buttonW = '30';
+        return isLogin ? (
+            <Button
+                h={buttonH}
+                w={buttonW}
+                onClick={async () => {
+                    await handleLogout();
+                }}>
+                {signButtonLabel}
+            </Button>
+        ) : (
+            <Button
+                h={buttonH}
+                w={buttonW}
+                onClick={() => { open('https://portal.nkz.ac.jp/portal/login.do', '_self') }}>
+                {signButtonLabel}
+            </Button>
+        )
+    };
 
     return (
         <Box
@@ -36,16 +55,13 @@ export const Header = ({ title, topPageURL, isLogin = false }: HeaderProps) => {
                     {title}
                 </Button>
                 <Flex
-                    flex={{ base: 1, md: 0 }}
                     justify={'flex-end'}>
                     <IconButton
                         aria-label={'notification'}
                         icon={<IoNotifications />}
                         marginRight={'4'}>
                     </IconButton>
-                    <Button>
-                        {signButtonLabel}
-                    </Button>
+                    <SignButton />
                 </Flex>
             </Flex>
         </Box>
