@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { login as loginToCampusmate } from '../apiWrapper';
+import { login as loginToCampusmate } from '../api/wrapper';
 import { Header } from '../components/Header';
 import { Stack, Center, Input, Button, FormControl, FormLabel } from '@chakra-ui/react';
 
