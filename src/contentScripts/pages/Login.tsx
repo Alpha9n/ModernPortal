@@ -1,7 +1,8 @@
 import { useRef } from 'react';
 import { login as loginToCampusmate } from '../apiWrapper';
 import { Header } from '../components/Header';
-import { Stack, Center, Input, Text, Button, FormControl } from '@chakra-ui/react';
+import { Stack, Center, Input, Button, FormControl, FormLabel } from '@chakra-ui/react';
+
 interface LoginProps {
     title: string;
     topPageURL: string;
@@ -12,7 +13,6 @@ export const Login = ({ title, topPageURL }: LoginProps) => {
     const passwordRef = useRef<HTMLInputElement>(null!);
 
     const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
-        console.log(e);
         e.preventDefault();
         loginToCampusmate(userIdRef.current.value, passwordRef.current.value);
     }
@@ -24,27 +24,31 @@ export const Login = ({ title, topPageURL }: LoginProps) => {
                 m={'2rem auto'}
                 w={'50%'}>
                 <Stack>
-                    <form onSubmit={(e) => {
-                        handleLogin(e);
-                    }}>
+                    <form
+                        name='loginFrom'
+                        method='post'
+                        action='/portal/login.do'
+                        onSubmit={(e) => handleLogin(e)}>
+                        <Input type='hidden' name='login' />
                         <FormControl>
-                            <Text>ユーザID</Text>
-                            <Input type='hidden' name='login' />
+                            <FormLabel>ユーザID</FormLabel>
                             <Input
                                 ref={userIdRef}
                                 placeholder='User ID'
                                 type='text'
                                 name='userId'
                                 />
-                            <Text>パスワード</Text>
+                        </FormControl>
+                        <FormControl>
+                            <FormLabel>パスワード</FormLabel>
                             <Input
                                 ref={passwordRef}
                                 placeholder='Password'
                                 type='password'
                                 name='password'
                                 />
-                            <Button type='submit'>ログイン</Button>
                         </FormControl>
+                        <Button type='submit'>ログイン</Button>
                     </form>
                 </Stack>
             </Center>
