@@ -11,14 +11,16 @@ export const Login = ({ title, topPageURL }: LoginProps) => {
     const userIdRef = useRef<HTMLInputElement>(null!);
     const passwordRef = useRef<HTMLInputElement>(null!);
 
-    const [ sending, setSending ] = useState<boolean>(false);
+    const [ isLoading, setLoading ] = useState<boolean>(false);
 
     const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setSending(true);
+        setLoading(true);
         loginToCampusmate(userIdRef.current.value, passwordRef.current.value)
             .then((ok) => {
-                if (!ok) setSending(false);
+                if (!ok) setLoading(false);
+            }).catch(() => {
+                setLoading(false);
             });
     }
 
@@ -61,7 +63,7 @@ export const Login = ({ title, topPageURL }: LoginProps) => {
                             type='submit'
                             mt={'4'}
                             colorScheme='blue'
-                            isLoading={sending}
+                            isLoading={isLoading}
                         >
                             ログイン
                         </Button>
