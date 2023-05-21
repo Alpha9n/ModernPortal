@@ -32,7 +32,6 @@ export const Login = ({ title, topPageURL }: LoginProps) => {
                         <FormControl>
                             <FormLabel
                                 mt={'2'}
-                                htmlFor='userId'
                             >ユーザID</FormLabel>
                             <Input
                                 ref={userIdRef}
@@ -44,7 +43,6 @@ export const Login = ({ title, topPageURL }: LoginProps) => {
                         <FormControl>
                             <FormLabel
                                 mt={'2'}
-                                htmlFor='password'
                             >パスワード</FormLabel>
                             <Input
                                 ref={passwordRef}
