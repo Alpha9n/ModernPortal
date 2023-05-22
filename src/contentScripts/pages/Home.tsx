@@ -12,6 +12,13 @@ export const Home = ({ title, topPageURL }: HomeProps) => {
             minH={'100vh'}
             bg={useColorModeValue('gray.50', 'gray.800')}>
             <Header title={title} topPageURL={topPageURL} isLogin={true} />
+            <Box
+                w={'60%'}
+                m={'0 auto'}
+                minH={'100vh'}
+                boxShadow={'lg'}>
+
+            </Box>
         </Box>
     )
 };
