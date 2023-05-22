@@ -39,6 +39,9 @@ devDependencies:
   '@crxjs/vite-plugin':
     specifier: 2.0.0-beta.17
     version: 2.0.0-beta.17
+  '@types/luxon':
+    specifier: ^3.3.0
+    version: 3.3.0
   '@types/react':
     specifier: ^18.0.28
     version: 18.0.28
@@ -1822,6 +1825,10 @@ packages:
   /@types/lodash@4.14.194:
     resolution: {integrity: sha512-r22s9tAS7imvBt2lyHC9B8AGwWnXaYb1tY09oyLkXDs4vArpYJzw09nj8MLx5VfciBPGIb+ZwG0ssYnEPJxn/g==}
     dev: false
+
+  /@types/luxon@3.3.0:
+    resolution: {integrity: sha512-uKRI5QORDnrGFYgcdAVnHvEIvEZ8noTpP/Bg+HeUzZghwinDlIS87DEenV5r1YoOF9G4x600YsUXLWZ19rmTmg==}
+    dev: true
 
   /@types/parse-json@4.0.0:
     resolution: {integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==}
