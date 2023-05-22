@@ -3,8 +3,9 @@ import { Login } from '../pages/Login';
 import { NotFound } from '../pages/404';
 import { ChakraProvider } from '@chakra-ui/react';
 import '../styles/general.css';
-import { isUserLoggedIn } from '../utils/scraper';
+import { isTopPage, isUserLoggedIn } from '../utils/scraper';
 import React from 'react';
+import { Home } from '../pages/Home';
 
 const stylesheets = [...document.getElementsByTagName('link')];
 const container = document.getElementById('container');
@@ -19,8 +20,10 @@ const removePage = () => {
 }
 
 const routingPage = (): JSX.Element => {
-    if (isUserLoggedIn()) {
+    if (!isUserLoggedIn()) {
         return <Login title={title} topPageURL={topPageURL} />
+    } else if (isTopPage()) {
+        return <Home title={title} topPageURL={topPageURL} />
     } else {
         return <NotFound title={title} topPageURL={topPageURL} />
     }

@@ -8,6 +8,7 @@ interface LoginProps {
 }
 
 export const Login = ({ title, topPageURL }: LoginProps) => {
+    document.title = `${title} | Login`
     const userIdRef = useRef<HTMLInputElement>(null!);
     const passwordRef = useRef<HTMLInputElement>(null!);
 

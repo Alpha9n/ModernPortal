@@ -6,7 +6,7 @@ interface NotFoundProps {
 }
 
 export const NotFound = ({ title, topPageURL }: NotFoundProps): JSX.Element => {
-
+    document.title = `${title} | 404`
     return (
         <Box
             minH={'100vh'}
