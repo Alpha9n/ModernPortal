@@ -37,16 +37,13 @@ export const handleLogout = () => {
         ])
     });
 
-    if (confirm('ログアウトしますか？')) {
-        return fetch(request).then((response): boolean => {
-            if (response.redirected) {
-                location.href = CAMPUSMATE_LOGIN_URL;
+    return fetch(request).then((response): boolean => {
+        if (response.redirected) {
+            location.href = CAMPUSMATE_LOGIN_URL;
 
-                return true;
-            } else {
-                return false;
-            }
-        });
-    }
-    return;
+            return true;
+        } else {
+            return false;
+        }
+    });
 };
