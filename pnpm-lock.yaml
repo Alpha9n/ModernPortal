@@ -25,6 +25,9 @@ dependencies:
   framer-motion:
     specifier: ^10.12.10
     version: 10.12.10(react-dom@18.2.0)(react@18.2.0)
+  luxon:
+    specifier: ^3.3.0
+    version: 3.3.0
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -2389,6 +2392,11 @@ packages:
     dependencies:
       yallist: 3.1.1
     dev: true
+
+  /luxon@3.3.0:
+    resolution: {integrity: sha512-An0UCfG/rSiqtAIiBPO0Y9/zAnHUZxAMiCpTd5h2smgsj7GGmcenvrvww2cqNA8/4A5ZrD1gJpHN2mIHZQF+Mg==}
+    engines: {node: '>=12'}
+    dev: false
 
   /magic-string@0.26.7:
     resolution: {integrity: sha512-hX9XH3ziStPoPhJxLq1syWuZMxbDvGNbVchfrdCtanC7D13888bMFow61x8axrx+GfHLtVeAx2kxL7tTGRl+Ow==}
