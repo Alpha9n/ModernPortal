@@ -1,29 +1,78 @@
-import { Box, Button, Flex, useBreakpointValue, useColorModeValue, IconButton, Link, Input } from "@chakra-ui/react";
-import { IoNotifications } from "react-icons/io5";
-import { handleLogout } from "../api/wrapper";
+import { 
+    Box, 
+    Button, 
+    Flex, 
+    useBreakpointValue, 
+    useColorModeValue, 
+    IconButton, 
+    Link, 
+    Input, 
+    useToast, 
+    Menu,
+    MenuButton,
+    MenuList,
+    MenuGroup,
+    MenuItem,
+    MenuDivider,
+    Heading,
+    UnorderedList,
+    ListItem} from '@chakra-ui/react';
+import { IoNotifications } from 'react-icons/io5';
+import { FaUser, FaExternalLinkAlt, FaSignOutAlt, FaSignInAlt } from 'react-icons/fa';
+import { handleLogout } from '../api/wrapper';
+import { getLoginData } from '../utils/scraper';
 interface HeaderProps {
     title: string
     topPageURL: string
     isLogin?: boolean
+
 }
 
 export const Header = ({ title, topPageURL, isLogin = false }: HeaderProps): JSX.Element => {
     let signButtonLabel = isLogin ? 'ログアウト' : 'ログイン'
 
+    const loginData = getLoginData();
+
     const SignButton = (): JSX.Element => {
         const buttonH = '10';
         const buttonW = '30';
+
         return isLogin ? (
-            <Button
-                h={buttonH}
-                w={buttonW}
-                onClick={async () => {
-                    await handleLogout();
-                }}>
-                {signButtonLabel}
-            </Button>
+            <Flex>
+                <Menu>
+                    <MenuButton as={Button} w={buttonW} h={buttonH}>
+                        <FaUser/>
+                    </MenuButton>
+                    <MenuList>
+                        <MenuGroup title='ユーザー'>
+                            <Box m={'0 auto'} w={'fit-content'}>
+                                <UnorderedList>
+                                    <ListItem fontSize={'2xl'}>{loginData.studentName}</ListItem>
+                                    <ListItem fontSize={'sm'}>{loginData.studentNumber}</ListItem>
+                                    <ListItem fontSize={'sm'}>{loginData.lastLogin.toFormat('yyyy年LL月dd日 HH時mm分')}</ListItem>
+                                </UnorderedList>
+                            </Box>
+                        </MenuGroup>
+                        <MenuDivider />
+                        <MenuGroup title='ヘルプ'>
+                            <MenuItem icon={<FaExternalLinkAlt/>}>FAQ</MenuItem>
+                        </MenuGroup>
+                        <MenuDivider />
+                        <MenuGroup>
+                            <MenuItem
+                                icon={<FaSignOutAlt />}
+                                onClick={async () => {
+                                    await handleLogout();
+                                }}>
+                                ログアウト
+                            </MenuItem>
+                        </MenuGroup>
+                    </MenuList>
+                </Menu>
+            </Flex>
         ) : (
             <Button
+                leftIcon={<FaSignInAlt/>}
                 h={buttonH}
                 w={buttonW}
                 onClick={() => { open('https://portal.nkz.ac.jp/portal/login.do', '_self') }}>
