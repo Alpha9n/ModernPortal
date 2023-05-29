@@ -1,13 +1,13 @@
-import { 
-    Box, 
-    Button, 
-    Flex, 
-    useBreakpointValue, 
-    useColorModeValue, 
-    IconButton, 
-    Link, 
-    Input, 
-    useToast, 
+import {
+    Box,
+    Button,
+    Flex,
+    useBreakpointValue,
+    useColorModeValue,
+    IconButton,
+    Link,
+    Input,
+    useToast,
     Menu,
     MenuButton,
     MenuList,
@@ -16,7 +16,8 @@ import {
     MenuDivider,
     Heading,
     UnorderedList,
-    ListItem} from '@chakra-ui/react';
+    ListItem
+} from '@chakra-ui/react';
 import { IoNotifications } from 'react-icons/io5';
 import { FaUser, FaExternalLinkAlt, FaSignOutAlt, FaSignInAlt } from 'react-icons/fa';
 import { handleLogout } from '../api/wrapper';
@@ -31,17 +32,17 @@ interface HeaderProps {
 export const Header = ({ title, topPageURL, isLogin = false }: HeaderProps): JSX.Element => {
     let signButtonLabel = isLogin ? 'ログアウト' : 'ログイン'
 
-    const loginData = getLoginData();
-
     const SignButton = (): JSX.Element => {
         const buttonH = '10';
         const buttonW = '30';
 
-        return isLogin ? (
+        if (isLogin) {
+            const loginData = getLoginData();
+            return (
             <Flex>
                 <Menu>
                     <MenuButton as={Button} w={buttonW} h={buttonH}>
-                        <FaUser/>
+                        <FaUser />
                     </MenuButton>
                     <MenuList>
                         <MenuGroup title='ユーザー'>
@@ -55,7 +56,11 @@ export const Header = ({ title, topPageURL, isLogin = false }: HeaderProps): JSX
                         </MenuGroup>
                         <MenuDivider />
                         <MenuGroup title='ヘルプ'>
-                            <MenuItem icon={<FaExternalLinkAlt/>}>FAQ</MenuItem>
+                            <MenuItem 
+                                icon={<FaExternalLinkAlt />}
+                                isDisabled={true}>
+                                FAQ
+                            </MenuItem>
                         </MenuGroup>
                         <MenuDivider />
                         <MenuGroup>
@@ -70,15 +75,18 @@ export const Header = ({ title, topPageURL, isLogin = false }: HeaderProps): JSX
                     </MenuList>
                 </Menu>
             </Flex>
-        ) : (
-            <Button
-                leftIcon={<FaSignInAlt/>}
-                h={buttonH}
-                w={buttonW}
-                onClick={() => { open('https://portal.nkz.ac.jp/portal/login.do', '_self') }}>
-                {signButtonLabel}
-            </Button>
-        )
+            )
+        } else {
+            return (
+                <Button
+                    leftIcon={<FaSignInAlt />}
+                    h={buttonH}
+                    w={buttonW}
+                    onClick={() => { open('https://portal.nkz.ac.jp/portal/login.do', '_self') }}>
+                    {signButtonLabel}
+                </Button>
+            )
+        }
     };
 
     return (

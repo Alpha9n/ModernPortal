@@ -1,5 +1,6 @@
-import { Box, useColorModeValue } from "@chakra-ui/react";
+import { Box, Card, Heading, Stack, useColorModeValue } from "@chakra-ui/react";
 import { Header } from '../components/Header'
+import { getLoginData } from "../utils/scraper";
 interface HomeProps {
     title: string;
     topPageURL: string;
@@ -13,11 +14,20 @@ export const Home = ({ title, topPageURL }: HomeProps) => {
             bg={useColorModeValue('gray.50', 'gray.800')}>
             <Header title={title} topPageURL={topPageURL} isLogin={true} />
             <Box
-                w={'60%'}
+                minW={'500px'}
+                w={'70%'}
+                minH={'50vh'}
                 m={'0 auto'}
-                minH={'100vh'}
+                p={'2rem'}
                 boxShadow={'lg'}>
-
+                <Card
+                    p={'1rem'}>
+                    <Heading
+                        as={'h2'}
+                        size={'l'}>
+                        リンク
+                    </Heading>
+                </Card>
             </Box>
         </Box>
     )

@@ -2,6 +2,7 @@ import { DateTime } from 'luxon';
 
 const campusmateContainer   = document.querySelector<HTMLDivElement>('body > div#container')!;
 const loginDataContainer    = campusmateContainer.querySelector('#login_inf')!;
+const linkListContainer     = campusmateContainer.querySelector('#sideMenuMiddle')!;
 const topPagePath           = '/portal/top.do';
 
 // ログイン情報取得用interface
