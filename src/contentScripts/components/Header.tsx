@@ -5,16 +5,12 @@ import {
     useBreakpointValue,
     useColorModeValue,
     IconButton,
-    Link,
-    Input,
-    useToast,
     Menu,
     MenuButton,
     MenuList,
     MenuGroup,
     MenuItem,
     MenuDivider,
-    Heading,
     UnorderedList,
     ListItem
 } from '@chakra-ui/react';
@@ -26,7 +22,6 @@ interface HeaderProps {
     title: string
     topPageURL: string
     isLogin?: boolean
-
 }
 
 export const Header = ({ title, topPageURL, isLogin = false }: HeaderProps): JSX.Element => {
@@ -46,10 +41,16 @@ export const Header = ({ title, topPageURL, isLogin = false }: HeaderProps): JSX
                     </MenuButton>
                     <MenuList>
                         <MenuGroup title='ユーザー'>
-                            <Box m={'0 auto'} w={'fit-content'}>
+                            <Box pl={'1em'} w={'fit-content'}>
                                 <UnorderedList>
                                     <ListItem fontSize={'2xl'}>{loginData.studentName}</ListItem>
                                     <ListItem fontSize={'sm'}>{loginData.studentNumber}</ListItem>
+                                </UnorderedList>
+                            </Box>
+                        </MenuGroup>
+                        <MenuGroup title={'前回ログイン日時'}>
+                            <Box pl={'1em'} w={'fit-content'}>
+                                <UnorderedList>
                                     <ListItem fontSize={'sm'}>{loginData.lastLogin.toFormat('yyyy年LL月dd日 HH時mm分')}</ListItem>
                                 </UnorderedList>
                             </Box>
