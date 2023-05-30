@@ -51,7 +51,10 @@ export const Header = ({ title, topPageURL, isLogin = false }: HeaderProps): JSX
                         <MenuGroup title={'前回ログイン日時'}>
                             <Box pl={'1em'} w={'fit-content'}>
                                 <UnorderedList>
-                                    <ListItem fontSize={'sm'}>{loginData.lastLogin.toFormat('yyyy年LL月dd日 HH時mm分')}</ListItem>
+                                    <ListItem 
+                                        fontSize={'sm'}>
+                                            {loginData.lastLogin.toFormat('yyyy年LL月dd日 HH時mm分')}
+                                    </ListItem>
                                 </UnorderedList>
                             </Box>
                         </MenuGroup>
