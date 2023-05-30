@@ -30,5 +30,5 @@ export const Home = ({ title, topPageURL }: HomeProps) => {
                 </Card>
             </Box>
         </Box>
-    )
+    );
 };
