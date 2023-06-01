@@ -1,13 +1,14 @@
 import { Box, Card, useColorModeValue } from '@chakra-ui/react';
-import { Header } from '../components/Header'
+import { Header } from '../components/Header';
 import { Links } from '../components/Links';
+
 interface HomeProps {
     title: string;
     topPageURL: string;
 }
 
 export const Home = ({ title, topPageURL }: HomeProps) => {
-    document.title = `${title} | Home`
+    document.title = `${title} | Home`;
 
 
     return (

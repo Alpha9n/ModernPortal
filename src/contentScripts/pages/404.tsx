@@ -1,12 +1,12 @@
-import { Box, Heading, Text, useColorModeValue } from "@chakra-ui/react";
-import { Header } from "../components/Header";
+import { Box, Heading, Text, useColorModeValue } from '@chakra-ui/react';
+import { Header } from '../components/Header';
 interface NotFoundProps {
     title: string
     topPageURL: string
 }
 
 export const NotFound = ({ title, topPageURL }: NotFoundProps): JSX.Element => {
-    document.title = `${title} | 404`
+    document.title = `${title} | 404`;
     return (
         <Box
             minH={'100vh'}
@@ -29,4 +29,4 @@ export const NotFound = ({ title, topPageURL }: NotFoundProps): JSX.Element => {
             </Box>
         </Box>
     );
-}
+};

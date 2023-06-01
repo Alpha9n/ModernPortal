@@ -2,13 +2,14 @@ import { useRef, useState } from 'react';
 import { login as loginToCampusmate } from '../api/wrapper';
 import { Header } from '../components/Header';
 import { Box, Stack, Input, Button, FormControl, useColorModeValue, Heading, FormLabel } from '@chakra-ui/react';
+
 interface LoginProps {
     title: string;
     topPageURL: string;
 }
 
 export const Login = ({ title, topPageURL }: LoginProps) => {
-    document.title = `${title} | Login`
+    document.title = `${title} | Login`;
     const userIdRef = useRef<HTMLInputElement>(null!);
     const passwordRef = useRef<HTMLInputElement>(null!);
 
@@ -23,7 +24,7 @@ export const Login = ({ title, topPageURL }: LoginProps) => {
             }).catch(() => {
                 setLoading(false);
             });
-    }
+    };
 
     return (
         <Box

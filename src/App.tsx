@@ -24,7 +24,7 @@ const App = () => {
     } else if (value === 'light' && colorMode === 'dark') {
       toggleColorMode();
     }
-  }
+  };
 
   return (
     <Box margin={['0', 'auto']}>

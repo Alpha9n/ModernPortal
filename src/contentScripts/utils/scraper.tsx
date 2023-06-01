@@ -31,7 +31,7 @@ export const getLinkList    = (): Array<LinkListData> => {
     
     menuSection.forEach((elem) => {
         let linkDataList: Array<ReactNode> = [];
-        const labelName = elem.querySelector('.label')?.textContent!
+        const labelName = elem.querySelector('.label')?.textContent!;
 
         elem.querySelectorAll('a').forEach((linkItem, index) => {
             const isExternal =  (labelName === '自宅用メニュー')? true : false;
@@ -55,12 +55,12 @@ export const getLinkList    = (): Array<LinkListData> => {
         const linkListData: LinkListData = {
             linksTitle: labelName,
             links:      linkDataList
-        }
+        };
         linkList.push(linkListData);
     });
 
     return linkList;
-}
+};
 
 export const getLoginData   = (): LoginData => {
     // YYYY年MM月DD日\nHH時MM分\nの形式で取得されるので, parseしてDateTimeに変換
@@ -85,6 +85,6 @@ export const getLoginData   = (): LoginData => {
         lastLogin:      loginDateTime,
         studentNumber:  formatUser[2],
         studentName:    formatUser[4]
-    }
-    return loginData
-}
+    };
+    return loginData;
+};
