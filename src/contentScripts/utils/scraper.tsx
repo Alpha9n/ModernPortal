@@ -1,6 +1,6 @@
 import { Link, ListItem } from '@chakra-ui/react';
 import { DateTime } from 'luxon';
-import { ReactElement, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 
 const campusmateContainer   = document.querySelector<HTMLDivElement>('body > div#container')!;
@@ -32,16 +32,15 @@ export const getLinkList    = (): Array<LinkListData> => {
     menuSection.forEach((elem) => {
         let linkDataList: Array<ReactNode> = [];
         const labelName = elem.querySelector('.label')?.textContent!
-        elem.querySelectorAll('a').forEach((linkItem) => {
-            let isExternal = false
-            if (labelName === '自宅用メニュー') {
-                isExternal = true;
-            }
-            const icon = isExternal? <FaExternalLinkAlt/> : '';
+
+        elem.querySelectorAll('a').forEach((linkItem, index) => {
+            const isExternal =  (labelName === '自宅用メニュー')? true : false;
+            const icon =        isExternal? <FaExternalLinkAlt/> : '';
             
             const reactElem: ReactNode = (
                 <ListItem
-                    display={'flex'}>
+                    display={'flex'}
+                    key={index}>
                     <Link
                         href={linkItem.getAttribute('href')!}
                         isExternal={isExternal}
@@ -55,10 +54,8 @@ export const getLinkList    = (): Array<LinkListData> => {
         });
         const linkListData: LinkListData = {
             linksTitle: labelName,
-            links: linkDataList
+            links:      linkDataList
         }
-        console.log(linkListData);
-        
         linkList.push(linkListData);
     });
 
@@ -83,9 +80,9 @@ export const getLoginData   = (): LoginData => {
 
     // ログイン情報を#login_inf内から取得, parseしてObjectとして返す
     const loginData: LoginData = {
-        lastLogin:  loginDateTime,
-        studentNumber: formatUser[2],
-        studentName:  formatUser[4]
+        lastLogin:      loginDateTime,
+        studentNumber:  formatUser[2],
+        studentName:    formatUser[4]
     }
     return loginData
 }
