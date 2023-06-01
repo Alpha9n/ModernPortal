@@ -1,6 +1,7 @@
 import { Link, ListItem } from '@chakra-ui/react';
 import { DateTime } from 'luxon';
 import { ReactElement, ReactNode } from 'react';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 
 const campusmateContainer   = document.querySelector<HTMLDivElement>('body > div#container')!;
 const loginDataContainer    = campusmateContainer.querySelector('#login_inf')!;
@@ -30,19 +31,30 @@ export const getLinkList    = (): Array<LinkListData> => {
     
     menuSection.forEach((elem) => {
         let linkDataList: Array<ReactNode> = [];
+        const labelName = elem.querySelector('.label')?.textContent!
         elem.querySelectorAll('a').forEach((linkItem) => {
+            let isExternal = false
+            if (labelName === '自宅用メニュー') {
+                isExternal = true;
+            }
+            const icon = isExternal? <FaExternalLinkAlt/> : '';
+            
             const reactElem: ReactNode = (
-                <ListItem>
+                <ListItem
+                    display={'flex'}>
                     <Link
-                        href={linkItem.getAttribute('href')!}>
+                        href={linkItem.getAttribute('href')!}
+                        isExternal={isExternal}
+                        mr={'1em'}>
                         {linkItem.textContent}
                     </Link>
+                    {icon}
                 </ListItem>
             );
             linkDataList.push(reactElem);
         });
         const linkListData: LinkListData = {
-            linksTitle: elem.querySelector('.label')?.textContent!,
+            linksTitle: labelName,
             links: linkDataList
         }
         console.log(linkListData);
