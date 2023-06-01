@@ -1,4 +1,6 @@
+import { Link, ListItem } from '@chakra-ui/react';
 import { DateTime } from 'luxon';
+import { ReactElement, ReactNode } from 'react';
 
 const campusmateContainer   = document.querySelector<HTMLDivElement>('body > div#container')!;
 const loginDataContainer    = campusmateContainer.querySelector('#login_inf')!;
@@ -8,15 +10,51 @@ const topPagePath           = '/portal/top.do';
 // ログイン情報取得用interface
 interface LoginData {
     lastLogin:      DateTime;
-    studentNumber?:    string;
-    studentName?:      string;
+    studentNumber?: string;
+    studentName?:   string;
 }
+
+interface LinkListData {
+    linksTitle:      string;
+    links:          Array<ReactNode>;
+}
+
 
 export const isUserLoggedIn = () => campusmateContainer.querySelector('#loginArea') == null;
 export const isTopPage      = () => (isUserLoggedIn() && (location.pathname == topPagePath));
 
+export const getLinkList    = (): Array<LinkListData> => {
+    // リンク一覧を#sideMenuMiddle内から取得, parseしてArrayとして返す
+    const linkList: Array<LinkListData> = [];
+    const menuSection = linkListContainer.querySelectorAll('ul');
+    
+    menuSection.forEach((elem) => {
+        let linkDataList: Array<ReactNode> = [];
+        elem.querySelectorAll('a').forEach((linkItem) => {
+            const reactElem: ReactNode = (
+                <ListItem>
+                    <Link
+                        href={linkItem.getAttribute('href')!}>
+                        {linkItem.textContent}
+                    </Link>
+                </ListItem>
+            );
+            linkDataList.push(reactElem);
+        });
+        const linkListData: LinkListData = {
+            linksTitle: elem.querySelector('.label')?.textContent!,
+            links: linkDataList
+        }
+        console.log(linkListData);
+        
+        linkList.push(linkListData);
+    });
+
+    return linkList;
+}
+
 export const getLoginData   = (): LoginData => {
-    // YYYY年MM月DD日\nHH時MM分
+    // YYYY年MM月DD日\nHH時MM分\nの形式で取得されるので, parseしてDateTimeに変換
     const plainDate = loginDataContainer.querySelector<HTMLDivElement>('.date')!.innerText;
     const plainUser = loginDataContainer.querySelector<HTMLDivElement>('.user')!.innerText;
 

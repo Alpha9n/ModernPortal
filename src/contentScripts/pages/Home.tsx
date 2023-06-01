@@ -1,6 +1,8 @@
-import { Box, Card, Heading, Stack, useColorModeValue } from "@chakra-ui/react";
+import { Box, Card, Heading, List, ListItem, Stack, UnorderedList, useColorModeValue } from '@chakra-ui/react';
 import { Header } from '../components/Header'
-import { getLoginData } from "../utils/scraper";
+import { getLinkList } from '../utils/scraper';
+import { FaKey } from 'react-icons/fa';
+import { Links } from '../components/Links';
 interface HomeProps {
     title: string;
     topPageURL: string;
@@ -8,6 +10,7 @@ interface HomeProps {
 
 export const Home = ({ title, topPageURL }: HomeProps) => {
     document.title = `${title} | Home`
+
     return (
         <Box
             minH={'100vh'}
@@ -21,12 +24,9 @@ export const Home = ({ title, topPageURL }: HomeProps) => {
                 p={'2rem'}
                 boxShadow={'lg'}>
                 <Card
-                    p={'1rem'}>
-                    <Heading
-                        as={'h2'}
-                        size={'l'}>
-                        リンク
-                    </Heading>
+                    p={'1rem'}
+                    maxH={'100%'}>
+                    <Links display={'flex'} hSize={'lg'}/>
                 </Card>
             </Box>
         </Box>
