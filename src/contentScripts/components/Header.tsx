@@ -18,6 +18,7 @@ import { IoNotifications } from 'react-icons/io5';
 import { FaUser, FaExternalLinkAlt, FaSignOutAlt, FaSignInAlt } from 'react-icons/fa';
 import { handleLogout } from '../api/wrapper';
 import { getLoginData } from '../utils/scraper';
+import { useMemo } from 'react';
 interface HeaderProps {
     title: string
     topPageURL: string
@@ -32,7 +33,7 @@ export const Header = ({ title, topPageURL, isLogin = false }: HeaderProps): JSX
         const buttonW = '30';
 
         if (isLogin) {
-            const loginData = getLoginData();
+            const loginData = useMemo(() => getLoginData(), []);
             return (
             <Flex>
                 <Menu>
@@ -51,9 +52,14 @@ export const Header = ({ title, topPageURL, isLogin = false }: HeaderProps): JSX
                         <MenuGroup title={'前回ログイン日時'}>
                             <Box pl={'1em'} w={'fit-content'}>
                                 <UnorderedList>
-                                    <ListItem 
+                                    <ListItem
                                         fontSize={'sm'}>
-                                            {loginData.lastLogin.toFormat('yyyy年LL月dd日 HH時mm分')}
+                                            <time
+                                                title={loginData.lastLogin.toFormat('yyyy年LL月dd日 HH時mm分')}
+                                                dateTime={loginData.lastLogin.toString()}
+                                            >
+                                                {loginData.lastLogin.toRelative({locale: 'ja'})}
+                                            </time>
                                     </ListItem>
                                 </UnorderedList>
                             </Box>

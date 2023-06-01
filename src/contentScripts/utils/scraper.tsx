@@ -77,8 +77,8 @@ export const getLoginData   = (): LoginData => {
         formatDate,
         'yyyy-L-d H:m'
     );
+
     const formatUser = plainUser.match(/[^'\n]+/g)!;
-    
 
     // ログイン情報を#login_inf内から取得, parseしてObjectとして返す
     const loginData: LoginData = {
@@ -86,5 +86,6 @@ export const getLoginData   = (): LoginData => {
         studentNumber:  formatUser[2],
         studentName:    formatUser[4]
     };
+
     return loginData;
 };
