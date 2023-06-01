@@ -1,7 +1,7 @@
 import './App.css';
-import { Heading, Select, Button, Box, Divider, Text, useColorMode } from '@chakra-ui/react';
+import { Flex, Heading, Select, Button, Box, Divider, Text, useColorMode, Link } from '@chakra-ui/react';
 import { ThemeTypes, isThemeValue, setTheme } from './Utils';
-import { FaExternalLinkAlt } from "react-icons/fa";
+import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
 
 const App = () => {
 
@@ -46,7 +46,13 @@ const App = () => {
           <Button leftIcon={<FaExternalLinkAlt />} colorScheme='blue' onClick={() => openLink(portalLink)} w={'100%'}>Portal</Button>
         </Box>
       </Box>
-    </Box>
+      <Flex>
+        <Text fontSize={'0.8rem'}>
+          Made with <Link onClick={() => openLink('https://github.com/Alpha9n/ModernPortal/graphs/contributors')}> contributor </Link>
+          by <Link onClick={() => openLink('https://kosuke.dev')}> kosukej </Link>
+        </Text>
+      </Flex>
+    </Box >
   );
 };
 

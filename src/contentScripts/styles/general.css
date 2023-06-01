@@ -27,20 +27,24 @@ input[type=password] {
     appearance: none;
 }
 
+input[type=text],
+input[type=password] {
+    width: 100%;
+    background-color: #edeeee;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+}
+
 input[type=button] {
     width: fit-content;
     border-radius: 5px;
+    padding: 0.5em 2em;
     background-color: #8eccf4;
-    height: 1rem;
 
     &:hover {
         background-color: #63b3ed;
+        cursor: pointer;
     }
-}
-
-body {
-    background-color: #1a202c;
-    color: #edeeee;
 }
 
 .qtip.qtip-blue {
@@ -91,13 +95,16 @@ body {
     margin: 2rem auto;
     width: 60%;
     height: 60vh;
+
+    &>tbody>tr>td {
+        padding: 1rem;
+    }
 }
 
 #sub1 {
     font-weight: 900;
     vertical-align: top;
 }
-
 
 #slide {
     display: none;
