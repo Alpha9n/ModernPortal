@@ -75,7 +75,7 @@ export const getLoginData   = (): LoginData => {
 
     const loginDateTime = DateTime.fromFormat(
         formatDate,
-        'yyyy-L-d HH:mm'
+        'yyyy-L-d H:m'
     );
     const formatUser = plainUser.match(/[^'\n]+/g)!;
     
