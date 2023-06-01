@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { getLinkList } from '../utils/scraper';
-import { Box, Heading, ListItem, ResponsiveValue, UnorderedList } from '@chakra-ui/react';
+import { Box, Heading, UnorderedList } from '@chakra-ui/react';
 
 interface LinksProps {
     display?: 'flex' | 'block';
@@ -8,9 +8,10 @@ interface LinksProps {
 }
 
 export const Links = ({ display = 'block', hSize = 'xl' }: LinksProps) => {
-    const linkList: ReactNode = getLinkList().map((linkItem) => {
+    const linkList: ReactNode = getLinkList().map((linkItem, index) => {
         return (
-            <Box>
+            <Box
+                key={index}>
                 <Heading size={hSize}>
                     {linkItem.linksTitle}
                 </Heading>
