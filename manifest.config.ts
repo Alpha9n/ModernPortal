@@ -30,11 +30,12 @@ export default defineManifest(async (env) => ({
     },
     content_scripts: [
         {
+            "run_at": "document_end",
             "matches": [
                 "*://*.portal.nkz.ac.jp/portal/*"
             ],
             "js": [
-                "./src/contentScripts/scripts/general.js"
+                "./src/contentScripts/scripts/general.tsx"
             ]
         }
     ],
