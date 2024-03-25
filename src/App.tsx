@@ -1,7 +1,7 @@
 import './App.css';
 import { Flex, Heading, Select, Button, Box, Divider, Text, useColorMode, Link } from '@chakra-ui/react';
 import { ThemeTypes, isThemeValue, setTheme } from './Utils';
-import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 
 const App = () => {
 
